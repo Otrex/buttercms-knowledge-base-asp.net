@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@ViewData["Title"]</title>
+  <meta name="description" content='@ViewData["Description"]'>
+  <meta name="author" content='@ViewData["Author"]'>
+  <link rel="stylesheet" href="~/css/main.css" />
+</head>
+<body>
+<header>
+  <div class="bodify">
+    <nav>
+      <div> <a href="/"> <img src="/assets/img/logo.svg" alt="logo" /> </a> </div>
+      <div id="d-nav">
+        <ul> 
+          <li> <a href="/"> Home </a> </li>
+          <li> <a href="#"> faq </a> </li>
+          <li> <a href="#"> contact </a> </li>
+        </ul>
+      </div>
+    </nav>
+@RenderBody()
+<footer> 
+  <div class="bodify"> 
+    <div row> 
+      <a href="/"> HOME </a> <a> Faq </a> <a> Contact </a>
+    </div>
+    <div> </div>
+    <div> Made by human somewhere  </div>
+  </div>
+</footer> 
+</body>
+</html>
