@@ -23,6 +23,10 @@ input {
   border: none;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
 .bodify {
   max-width: 110rem;
   margin: 0 auto;
@@ -34,7 +38,7 @@ main {
 }
 * {
   box-sizing: border-box;
-  transition: .1s all;
+  transition: .08s all;
   /* outline: 1px solid red; */
 }
 

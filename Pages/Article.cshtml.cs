@@ -1,19 +1,20 @@
-﻿using ButterCMS;
-using ButterCMS.Models;
+﻿using ButterCMS.Models;
+using buttercmsknowledgebase.Category;
 using buttercmsknowledgebase.Models;
+using buttercmsknowledgebase.Service;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace buttercmsknowledgebase.Pages;
 
 public class ArticleModel : PageModel
 {
-    public PageResponse<KBPage> PageData;
+    public PageResponse<KBPage>? PageData;
+    public KBCategories? Categories;
     public async Task OnGetAsync()
     {
-        var Slug = (string)RouteData.Values["slug"];
-        var Env = System.Environment.GetEnvironmentVariable("BUTTER_CMS_KEY");
-        var butterClient = new ButterCMSClient(Env);
-        var parameterDict = new Dictionary<string, string>(){};
-        PageData = await butterClient.RetrievePageAsync<KBPage>("*",Slug,parameterDict);
+        var butterClient = AppService.GetClient();
+        var Slug = (string)(RouteData.Values["slug"] ?? "");
+        PageData = await butterClient.RetrievePageAsync<KBPage>("kb_page",Slug);
+        Categories = await AppService.GetCategories();
     }
 }

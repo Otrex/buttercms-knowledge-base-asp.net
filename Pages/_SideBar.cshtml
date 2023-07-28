@@ -1,11 +1,12 @@
+@model buttercmsknowledgebase.Category.KBCategories
 <h3> Other Categories </h3>
-<form method="get"> 
-  <input class="s-input w-full" type="text" placeholder="Search for answers..." />
+<form method="get"  action="/Search"> 
+  <input class="s-input w-full" id="search" name="q" type="text" placeholder="Search for answers..." />
 </form>
 <div class="collections"> 
   <ul> 
-    <li><a> How To's </a></li>
-    <li><a> Installations </a></li>
-    <li><a> Version Guides </a></li>
+    @foreach (var Category in Model.data.KbCategory) {
+      <li><a href="/Category/@Category.Name"> @Category.Name </a></li>
+    }
   </ul>
 </div>

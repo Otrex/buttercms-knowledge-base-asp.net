@@ -1,11 +1,11 @@
-﻿@page
-@model SearchModel
+﻿@page "/Category/{slug}"
+@model CategoryModel
 @{
-    ViewData["Title"] = "Search Results";
+    ViewData["Title"] = "Category";
 }
+
 <section class="pb-5"> 
-  <h1>Search Results</h1>
-  <p>You searched for: <script>query()</script></p>
+  <h1>Category: @Model.Slug</h1>
 </section>
 </div>
 </header>

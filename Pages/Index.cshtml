@@ -20,14 +20,14 @@
     <div class="bodify"> 
       <h2 class="accent">Browse All Topics</h2>
       <div class="features"> 
-        @foreach (var TopicCard in Model.PageData.Data.Fields.Topics.Cards) {
-          <div class="item">
+        @foreach (var TopicCard in Model.PageData.Data.Fields.Topics) {
+          <a class="item" href="/Category/@TopicCard.Name">
             <div class="image-container"> 
-              <img src="@TopicCard.Image" alt="card" />
+              <img src="@TopicCard.Icon" alt="card" />
             </div>
-            <h3>@TopicCard.Headline</h3>
-            <p>@TopicCard.Sub</p>
-          </div>
+            <h3>@TopicCard.Name</h3>
+            <p>@TopicCard.Description</p>
+          </a>
         }
       </div>
     </div>
@@ -36,11 +36,11 @@
     <div class="bodify">
       <h2>Featured Article</h2>
       <article> 
-        @foreach (var Feature in Model.PageData.Data.Fields.Featured) {
-          <a class="list" href="/@Feature.Link">
-            <span>@Feature.Title</span>
+        @foreach (var Feature in Model.PageData.Data.Fields.Features) {
+          <a class="list" href="/Article/@Feature.Slug">
+            <span>@Feature.Name</span>
             <div> 
-              <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="m702-301-43-42 106-106H120v-60h646L660-615l42-42 178 178-178 178Z"/></svg>
+              <img src="/assets/img/arrow.svg" alt="arrow" />
             </div>
           </a>
         }
@@ -50,9 +50,9 @@
   </section>
   <section id="three"> 
     <div class="bodify"> 
-      <h2>Didn't find an answer to your question?</h2>
-      <p>Get in touch with us for details on additional services and custom work pricing</p>
-      <button> contact us </button>
+      <h2> @Model.PageData.Data.Fields.Contact.Headline </h2>
+      <p> @Model.PageData.Data.Fields.Contact.Sub </p>
+      <button href="" onclick="window.open('@Model.PageData.Data.Fields.Contact.ContactLink')"> contact us </button>
     </div>
   </section>
 </main>
